@@ -57,9 +57,45 @@ else:
     print("Nem sikerült kapcsolatot létesíteni a szerverrel!")
 
 
+def cb_modTanar(request_id, response, exception):
+
+    if exception is not None:
+        id=request_id
+        tanar = serviceAdmin.users().get(id).execute()
+        email=str(tanar.get("primaryEmail"))
+        primail=email.replace("sulinet", "edu")
+        
+        tanar = {   "primaryEmail" : primail,
+                    "aliases" : [email]
+        }
+
+        ismeteld=True
+        varido=1
+
+        while ismeteld and varido < 64:
+            try:
+                tanar = serviceAdmin.users().patch(userKey=id, body=tanar).execute()
+                ismeteld=False
+            except HttpError as err:
+                if err.resp.status in [409]:
+                    ismeteld=False
+                elif err.resp.status in [403, 503]:
+                    time.sleep(varido+random())
+                    varido=varido*2
+                else:
+                    print(err)
+                    sys.exit()
+            print("*", end="")
+        if ismeteld:
+            print(err)
+            sys.exit()
+
+
 totalTime=time.time()
 
 print("Felhasználók e-mail címének módosítása")
+batch = serviceAdmin.new_batch_http_request(callback=cb_modTanar)
+kotegmeret=30
 lista={}
 page_token="a"
 db=0
@@ -73,15 +109,23 @@ while page_token is not None:
     for sor in lista.get("users"):
         email=str(sor.get("primaryEmail"))
         id=str(sor.get("id"))
-        if email.find("teszt") == 0:
+        if email.find("teszt") == 0 and email.find("sulinet") >= 0:
             primail=email.replace("sulinet", "edu")
-            # print(primail)
             tanar = {   "primaryEmail" : primail,
                         "aliases" : [email]
             }
-            tanar = serviceAdmin.users().patch(userKey=id, body=tanar).execute()
-            print(tanar)
+            request = serviceAdmin.users().patch(userKey=id, body=tanar)
+            batch.add(request, request_id=id)
+            kotegmeret-=1
+            print(".", end ="")
+            if kotegmeret < 1:
+                batch.execute()
+                kotegmeret=30
+                batch = serviceAdmin.new_batch_http_request(callback=cb_modTanar)
             db+=1
+
+print(".")
+batch.execute()
 print("\nMódosított e-mail címek száma:", db)
 elapsedTime = time.time() - totalTime
 print("Ez a programrész %.3fs alatt futott le." % elapsedTime)
