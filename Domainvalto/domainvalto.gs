@@ -28,13 +28,12 @@ function Domainvalto() {
 
   var sor=1;
   var db=0;
-  var par = { customer: "my_customer",
-              maxResults: 50,
-              pageToken: "" };
   var oldEmail;
-    
+  par.pageToken = "";
+  par.maxResults=50;
+
   do {
-    
+
     lista = AdminDirectory.Users.list(par);
 
     par.pageToken = lista.nextPageToken;
@@ -65,10 +64,9 @@ function Domainvalto() {
   //--- Google csoportok e-mail címeinek módosítása
 
   sor=1;
-  var par = { customer: "my_customer",
-              maxResults: 100,
-              pageToken: "" };
-  
+  par.pageToken = "";
+  par.maxResults=100;
+
   do {
     
     lista = AdminDirectory.Groups.list(par);
