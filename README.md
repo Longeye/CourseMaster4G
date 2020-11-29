@@ -19,4 +19,5 @@ A Google Workspace/G Suit beüzemelését segíti a következő feladatok elvég
 Domainvalto:
 
 Kicserél két előre megadott domaint egymással a felhasználók e-mail címeiben és a Google csoportok e-mail címeiben.
+A könyvtárban megtalálható Python és Apps Script változatban is.
 
