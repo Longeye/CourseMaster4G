@@ -1,6 +1,6 @@
-# G Suit for Education Adminbot
+# G Suit (Google Workspace) for Education Adminbot
 
-A G Suit for Education rendszer adminisztrációs feladatait automatizáló programgyűjtemény.
+A G Suit (Google Workspace) for Education rendszer adminisztrációs feladatait automatizáló programgyűjtemény.
 
 Jelenlegi programok listája
 
@@ -16,8 +16,15 @@ A Google Workspace/G Suit beüzemelését segíti a következő feladatok elvég
 -	létrehozza a szükséges osztálytermeket/kurzusokat;
 -	elhelyezi a tanár és a diák felhasználókat is a megfelelő kurzusokban.
 
+
 Domainvalto:
 
 Kicserél két előre megadott domaint egymással a felhasználók e-mail címeiben és a Google csoportok e-mail címeiben.
 A könyvtárban megtalálható Python és Apps Script változatban is.
 
+
+Kurzusmester
+
+A jelenlegi verzió olyan alapvető funkciókat valósít meg, amelyek a Felügyeleti konzolról teljesen hiányoznak.
+Pl.: kurzusok listázása, kurzusok tanárainak és diákjainak listázása, tanárok vagy diákok hozzáadása kurzusokhoz.
+Ezt egy Google táblázat segítségével oldja meg, ami a leírásban szereplő linkről másolható le.
