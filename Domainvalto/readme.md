@@ -1,6 +1,3 @@
-
-
-
 A Google Apps Script ebben a táblázatban található:
 
 https://docs.google.com/spreadsheets/d/1Yph5MZUADPBpkjWahhJc27Xu_GVcqxwWxl43kjzPwkg/edit?usp=sharing
