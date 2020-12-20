@@ -13,6 +13,8 @@ Csoportok esetében a csoport nevét vizsgálja.
 A "Diákok" nevű munkalapra fel lehet tölteni a diákok neveit és az alapértelmezett jelszavukat. Pl. OM azonosító. Azoknak a felhasználóknak, akiknek megtalálható itt az e-mail címe, beállítja a jelszavát az itt szereplő értékre.
 A megadott értékeknek teljeíteni kell a jelszavakkal szemben támasztott biztonsági előírásokat, különben hibaüzenetet kapunk.
 
+Akik ebben a táblázatban nem szerepelnek, azoknak nem módosítja a jelszavát.
+
 Ha éles adatokon szeretnéd futtatni, akkor át kell írni a scriptben az első sort:
 
 var testmode = false;
