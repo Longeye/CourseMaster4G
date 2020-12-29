@@ -3,7 +3,8 @@ A Google Apps Script ebben a táblázatban található:
 https://docs.google.com/spreadsheets/d/1k8FsL41MCxOXXDwciiOidvY78g-ME3njoqFSQpMz1B4/edit?usp=sharing
 
 Csak olvasására van megosztva, így futtatás előtt másolatot kell készíteni róla.
-Az első megnyitáskor inicializálja magát. Létrehozza a "Status" és a "Diákok" munkalapokat, valamint elkészíti a "Domainváltó" menüpontot a főmenüben, amelyen keresztül elérhetőek a script funkciói.
+Az első megnyitáskor inicializálja magát. Létrehozza a "Status" és a "Diákok" munkalapokat (ha még nem léteznek), valamint elkészíti a "Domainváltó" menüpontot a főmenüben, amelyen keresztül elérhetőek a script funkciói. Íly módon elégséges a scriptet átmásolni egy másik (akár üres) táblázatba is.
+Script a scriptszerkesztőben.
 
 Csak admin jogosultságú felhasználóval működik, mivel a felhasználók e-mail címét kérdezi le és módosítja.
 
