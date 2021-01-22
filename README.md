@@ -1,4 +1,4 @@
-# G Suit (Google Workspace) for Education Adminbot
+# Coursemaster for Google Workspace (G Suit for Education)
 
 A G Suit (Google Workspace) for Education rendszer adminisztrációs feladatait automatizáló programgyűjtemény.
 
